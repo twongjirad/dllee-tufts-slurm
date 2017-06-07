@@ -43,8 +43,7 @@ ls -lh
 
 # ./run_tagger [cfg]
 logfile=`printf log_%03d.txt ${jobid}`
-#./run_tagger tagger.cfg >& $logfile
-run_tagger tagger_wire.cfg
+run_tagger tagger_wire.cfg >& logfile
 
 outfile_larcv=`printf ${output_dir}/taggerout_larcv_%03d.root ${jobid}`
 outfile_larlite=`printf ${output_dir}/taggerout_larlite_%03d.root ${jobid}`
