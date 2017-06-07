@@ -6,7 +6,7 @@ This folder contains script templates for running the DL LEE Singularity contain
 
 ## Building the container
 
-You will need to build and prepare the DL LEE container you wish to run. Follow [these]() instructions to do so.
+You will need to build and prepare the DL LEE container you wish to run. Follow [these](https://github.com/twongjirad/LArLiteSoftCookBook/wiki/Building-the-DL-LEE-Singularity-Container) instructions to do so.
 
 Once ready you should put the container here:
 
