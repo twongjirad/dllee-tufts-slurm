@@ -1,10 +1,14 @@
 import os,sys
 
 # SPECIFY FOLDER WHERE INPUT DATA LIVES
-#LARCV_SOURCE="/cluster/tufts/wongjiradlab/larbys/data/mcc8/calmod_mcc8_bnb_nu_cosmic_v06_26_01_run01.09000_run01.09399_v01_p00_out"
-#LARLITE_SOURCE="/cluster/tufts/wongjiradlab/larbys/data/mcc8/calmod_mcc8_bnb_nu_cosmic_v06_26_01_run01.09000_run01.09399_v01_p00_out"
-LARCV_SOURCE="/cluster/kappa/90-days-archive//wongjiradlab/larbys/data/mcc8/calmod_mcc8_bnb_nu_cosmic_v06_26_01_run01.09000_run01.09399_v01_p00_out"
-LARLITE_SOURCE="/cluster/kappa/90-days-archive/wongjiradlab/larbys/data/mcc8/calmod_mcc8_bnb_nu_cosmic_v06_26_01_run01.09000_run01.09399_v01_p00_out"
+
+# MCC8 numu+MC cosmic
+#LARCV_SOURCE="/cluster/kappa/90-days-archive//wongjiradlab/larbys/data/mcc8/calmod_mcc8_bnb_nu_cosmic_v06_26_01_run01.09000_run01.09399_v01_p00_out"
+#LARLITE_SOURCE="/cluster/kappa/90-days-archive/wongjiradlab/larbys/data/mcc8/calmod_mcc8_bnb_nu_cosmic_v06_26_01_run01.09000_run01.09399_v01_p00_out"
+
+# MCC8 nue+MC cosmic
+LARCV_SOURCE="/cluster/kappa/90-days-archive/wongjiradlab/larbys/data/mcc8/nue_intrinsics_fid10/supera"
+LARLITE_SOURCE="/cluster/kappa/90-days-archive/wongjiradlab/larbys/data/mcc8/nue_intrinsics_fid10/larlite"
 
 # We parse folder contents for larcv and larlite files
 # We keep them in a dictionary
@@ -39,18 +43,19 @@ fileid_list.sort()
 
 jobidlist = open("jobidlist.txt",'w')
 os.system("mkdir -p inputlists")
+os.system("rm -f inputlists/*")
 for jobid,fileid in enumerate(fileid_list):
-    flarcv = open("inputlists/input_larcv_%03d.txt"%(fileid),'w')
+    flarcv = open("inputlists/input_larcv_%04d.txt"%(fileid),'w')
     for f in job_dict[fileid]["larcv"]:
         print >> flarcv,f
     flarcv.close()
 
-    flarlite = open("inputlists/input_larlite_%03d.txt"%(fileid),'w')
+    flarlite = open("inputlists/input_larlite_%04d.txt"%(fileid),'w')
     for f in job_dict[fileid]["larlite"]:
         print >> flarlite,f
     flarlite.close()
     
-    print >> jobidlist,jobid
+    print >> jobidlist,fileid
 
 jobidlist.close()
 

@@ -12,7 +12,7 @@ template="""#!/bin/bash
 
 module load singularity
 
-srun singularity exec /cluster/kappa/90-days-archive/wongjiradlab/larbys/images/dllee_unified/__IMAGENAME__ bash -c "cd /cluster/home/__TUNAME__/__SCRIPTSDIR__/ && source run_job.sh /cluster/home/__TUNAME__/__SCRIPTSDIR__/tagger.cfg /cluster/home/__TUNAME__/__SCRIPTSDIR__/inputlists /cluster/kappa/90-days-archive/wongjiradlab/__OUTDIR__ /cluster/home/__TUNAME__/__SCRIPTSDIR__/jobidlist.txt"
+srun singularity exec /cluster/kappa/90-days-archive/wongjiradlab/larbys/images/dllee_unified/__IMAGENAME__ bash -c "cd __SCRIPTSDIR__ && source run_job.sh __SCRIPTSDIR__/tagger.cfg __SCRIPTSDIR__/inputlists /cluster/kappa/90-days-archive/wongjiradlab/__OUTDIR__ __SCRIPTSDIR__/jobidlist.txt"
 """
 
 
@@ -39,11 +39,11 @@ if __name__=="__main__":
     pwhoami  = os.popen("whoami")
     user = pwhoami.readlines()[0].strip()
     
-    scriptdir = workdir.strip().split("/")[-1]
+    scriptdir = workdir.strip()
     
-    if len(workdir.strip().split("/"))!=5 or workdir.strip().split("/")[1]!="cluster" or workdir.strip().split("/")[2]!="home" or workdir.strip().split("/")[3]!=user:
-        print "This script was meant to run in /cluster/home/%s/[folder container in this script]" % ( user )
-        sys.exit(-1)
+    #if len(workdir.strip().split("/"))!=5 or workdir.strip().split("/")[1]!="cluster" or workdir.strip().split("/")[2]!="home" or workdir.strip().split("/")[3]!=user:
+    #    print "This script was meant to run in /cluster/home/%s/[folder container in this script]" % ( user )
+    #    sys.exit(-1)
 
     image_name = sys.argv[1]
     outdir = sys.argv[2]
@@ -54,6 +54,7 @@ if __name__=="__main__":
 
     if not os.path.exists( outpath ):
         print "Could not find output dir: ",outpath
+        print "[outdir] argument is relative to /cluster/kappa/90-days-archive/wongjiradlab"
         sys.exit(-1)
 
     gen_submit_tagger_script( user, image_name, scriptdir, outdir, job_name )

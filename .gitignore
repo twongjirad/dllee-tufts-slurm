@@ -1,1 +1,7 @@
 *~
+inputlists/*
+jobidlist.txt
+slurm_*
+submit.sh
+*_log.txt
+
