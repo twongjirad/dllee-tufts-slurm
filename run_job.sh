@@ -52,5 +52,5 @@ cp tagger_anaout_larcv.root $outfile_larcv
 cp tagger_anaout_larlite.root $outfile_larlite
 
 # clean up
-#cd ../
-#rm -r $slurm_folder
+cd ../
+rm $slurm_folder/*.root
