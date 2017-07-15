@@ -4,6 +4,9 @@ import ROOT as rt
 # Check job id list. Check output folder. Check that tagger output files have entries (and same number of entries)
 # based on checks, will produce rerun list
 
+# MCC8.1 nue+cosmic: tufts
+TAGGER_FOLDER="/cluster/kappa/90-days-archive/wongjiradlab/larbys/data/mcc8.1/nue_1eNpfiltered/out_week071017/tagger"
+
 # MCC8.1 nue+cosmics: maccaffery
 #TAGGER_FOLDER="/home/taritree/larbys/data/mcc8.1/nue_1eNpfiltered/out_week0626/tagger"
 
@@ -11,7 +14,10 @@ import ROOT as rt
 #TAGGER_FOLDER="/cluster/kappa/90-days-archive/wongjiradlab/larbys/data/mcc8.1/nue_nocosmic_1eNpfiltered/out_week0626/tagger"
 
 # MCC8.1 numu+cosmic: tufts
-TAGGER_FOLDER="/cluster/kappa/90-days-archive/wongjiradlab/larbys/data/mcc8.1/numu_1muNpfiltered/out_week0626/tagger"
+#TAGGER_FOLDER="/cluster/kappa/90-days-archive/wongjiradlab/larbys/data/mcc8.1/numu_1muNpfiltered/out_week071017/tagger"
+
+# MCC8.1 corsika cosmic MC: tufts
+#TAGGER_FOLDER="/cluster/kappa/90-days-archive/wongjiradlab/larbys/data/mcc8.1/corsika_mc2/out_week071017/tagger"
 
 files = os.listdir(TAGGER_FOLDER)
 
@@ -63,6 +69,7 @@ for l in ljobid:
         rerun_list.append(jobid)
 fjobid.close()
 
+print "Remaining list: ",len(rerun_list)
 
 frerun = open("rerunlist.txt",'w')
 for jobid in rerun_list:
