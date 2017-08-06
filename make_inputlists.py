@@ -11,8 +11,12 @@ import os,sys
 #LARLITE_SOURCE="/cluster/kappa/90-days-archive/wongjiradlab/larbys/data/mcc8/nue_intrinsics_fid10/larlite"
 
 # MCC8.1 nue+MC cosmics: mccaffrey
-LARCV_SOURCE="/home/taritree/larbys/data/mcc8.1/nue_1eNpfiltered/supera"
-LARLITE_SOURCE="/home/taritree/larbys/data/mcc8.1/nue_1eNpfiltered/larlite"
+#LARCV_SOURCE="/home/taritree/larbys/data/mcc8.1/nue_1eNpfiltered/supera"
+#LARLITE_SOURCE="/home/taritree/larbys/data/mcc8.1/nue_1eNpfiltered/larlite"
+
+# MCC8.1 MC corsika cosmics: mccaffrey
+LARCV_SOURCE="/home/taritree/larbys/data/mcc8.1/corsika_mc/supera"
+LARLITE_SOURCE="/home/taritree/larbys/data/mcc8.1/corsika_mc/larlite"
 
 # We parse folder contents for larcv and larlite files
 # We keep them in a dictionary

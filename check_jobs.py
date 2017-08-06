@@ -4,7 +4,12 @@ import ROOT as rt
 # Check job id list. Check output folder. Check that tagger output files have entries (and same number of entries)
 # based on checks, will produce rerun list
 
-TAGGER_FOLDER="/home/taritree/larbys/data/mcc8.1/nue_1eNpfiltered/out_week0626/tagger"
+# MCC8.1 nue+MC cosmics: mccaffrey
+#TAGGER_FOLDER="/home/taritree/larbys/data/mcc8.1/nue_1eNpfiltered/out_week0626/tagger"
+
+# MCC8.1 MC corsika cosmics: mccaffrey
+TAGGER_FOLDER="/home/taritree/larbys/data/mcc8.1/corsika_mc/out_week0626/tagger"
+
 
 files = os.listdir(TAGGER_FOLDER)
 
@@ -35,7 +40,7 @@ for fid in ids:
         tree = rfile_larlite.Get("larlite_id_tree")
         nentries_larlite = tree.GetEntries()
         rfile_larlite.Close()
-        if nentries_larcv!=nentries_larlite:
+        if nentries_larcv!=nentries_larlite or nentries_larcv==0 or nentries_larlite==0:
             raise runtime_error("not the same")
         good_list.append(fid)
     except:
