@@ -1,11 +1,13 @@
 import os,sys
 import ROOT as rt
 
+TUFTS_DATAFOLDER="/cluster/kappa/90-days-archive/wongjiradlab/larbys/data"
+
 # Check job id list. Check output folder. Check that tagger output files have entries (and same number of entries)
 # based on checks, will produce rerun list
 
 # MCC8.1 nue+cosmic: tufts
-TAGGER_FOLDER="/cluster/kappa/90-days-archive/wongjiradlab/larbys/data/mcc8.1/nue_1eNpfiltered/out_week071017/tagger"
+#TAGGER_FOLDER="/cluster/kappa/90-days-archive/wongjiradlab/larbys/data/mcc8.1/nue_1eNpfiltered/out_week072517/tagger"
 
 # MCC8.1 nue+cosmics: maccaffery
 #TAGGER_FOLDER="/home/taritree/larbys/data/mcc8.1/nue_1eNpfiltered/out_week0626/tagger"
@@ -18,6 +20,12 @@ TAGGER_FOLDER="/cluster/kappa/90-days-archive/wongjiradlab/larbys/data/mcc8.1/nu
 
 # MCC8.1 corsika cosmic MC: tufts
 #TAGGER_FOLDER="/cluster/kappa/90-days-archive/wongjiradlab/larbys/data/mcc8.1/corsika_mc2/out_week071017/tagger"
+
+# Comparison Samples
+# ------------------
+
+# 1e1p nue+cosmics
+TAGGER_FOLDER=TUFTS_DATAFOLDER+"/comparison_samples/1e1p/out_week080717/tagger"
 
 files = os.listdir(TAGGER_FOLDER)
 
