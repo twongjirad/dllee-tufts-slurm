@@ -1,14 +1,59 @@
 import os,sys
 import ROOT as rt
 
+TUFTS="/cluster/kappa/90-days-archive/wongjiradlab/larbys/data"
+MCCAFFREY="/mnt/sdb/larbys/data"
+#MCCAFFREY="/home/taritree/larbys/data2"
+DATAFOLDER="__unset__"
+try:
+    LOCAL_MACHINE=os.popen("uname -n").readlines()[0].strip()
+    if LOCAL_MACHINE not in ["mccaffrey","login001"]:
+        raise RuntimeError("unrecognized machine")
+
+    if LOCAL_MACHINE=="mccaffrey":
+        DATAFOLDER=MCCAFFREY
+    elif LOCAL_MACHINE=="login001":
+        DATAFOLDER=TUFTS
+        
+except:
+    print "Could not get machine name"
+    LOCAL_MACHINE=os.popen("uname -n").readlines()
+    print LOCAL_MACHINE
+    sys.exit(-1)
+
+if DATAFOLDER=="__unset__":
+    raise RuntimeError("Didnt set DATAFOLDER properly.")
+
+
 # Check job id list. Check output folder. Check that tagger output files have entries (and same number of entries)
 # based on checks, will produce rerun list
 
-# MCC8.1 nue+MC cosmics: mccaffrey
+# MCC8.1 MC corsika cosmics: mccaffrey
+#TAGGER_FOLDER="/home/taritree/larbys/data/mcc8.1/corsika_mc/out_week0626/tagger"
+
+# MCC8.1 nue+cosmic: tufts
+#TAGGER_FOLDER="/cluster/kappa/90-days-archive/wongjiradlab/larbys/data/mcc8.1/nue_1eNpfiltered/out_week072517/tagger"
+
+# MCC8.1 nue+cosmics: maccaffery
 #TAGGER_FOLDER="/home/taritree/larbys/data/mcc8.1/nue_1eNpfiltered/out_week0626/tagger"
 
-# MCC8.1 MC corsika cosmics: mccaffrey
-TAGGER_FOLDER="/home/taritree/larbys/data/mcc8.1/corsika_mc/out_week0626/tagger"
+# MCC8.1 nue only: tufts
+#TAGGER_FOLDER="/cluster/kappa/90-days-archive/wongjiradlab/larbys/data/mcc8.1/nue_nocosmic_1eNpfiltered/out_week0626/tagger"
+
+# MCC8.1 numu+cosmic: tufts
+#TAGGER_FOLDER="/cluster/kappa/90-days-archive/wongjiradlab/larbys/data/mcc8.1/numu_1muNpfiltered/out_week071017/tagger"
+
+# MCC8.1 corsika cosmic MC: tufts
+#TAGGER_FOLDER="/cluster/kappa/90-days-archive/wongjiradlab/larbys/data/mcc8.1/corsika_mc2/out_week071017/tagger"
+
+# Comparison Samples
+# ------------------
+
+# 1e1p nue+cosmics: Tufts
+#TAGGER_FOLDER=DATAFOLDER+"/comparison_samples/1e1p/out_week080717/tagger"
+
+# 1mu1p nue+cosmics: McCaffrey
+TAGGER_FOLDER=DATAFOLDER+"/comparison_samples/1mu1p/out_week080717/tagger"
 
 
 files = os.listdir(TAGGER_FOLDER)
@@ -61,6 +106,7 @@ for l in ljobid:
         rerun_list.append(jobid)
 fjobid.close()
 
+print "Remaining list: ",len(rerun_list)
 
 frerun = open("rerunlist.txt",'w')
 for jobid in rerun_list:

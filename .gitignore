@@ -1,6 +1,7 @@
 *~
 inputlists/*
 jobidlist.txt
+rerunlist.txt
 slurm_*
 submit.sh
 *_log.txt
