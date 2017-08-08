@@ -25,7 +25,8 @@ TUFTS_DATAFOLDER="/cluster/kappa/90-days-archive/wongjiradlab/larbys/data"
 # ------------------
 
 # 1e1p nue+cosmics
-TAGGER_FOLDER=TUFTS_DATAFOLDER+"/comparison_samples/1e1p/out_week080717/tagger"
+#TAGGER_FOLDER=TUFTS_DATAFOLDER+"/comparison_samples/1e1p/out_week080717/tagger"
+TAGGER_FOLDER=TUFTS_DATAFOLDER+"/comparison_samples/1e1p/out_week080717/tagger_wbadch"
 
 files = os.listdir(TAGGER_FOLDER)
 
