@@ -4,17 +4,19 @@ import os,sys
 # ------------------------------------------------------------------------
 TUFTS="/cluster/kappa/90-days-archive/wongjiradlab/larbys/data"
 MCCAFFREY="/mnt/sdb/larbys/data"
-#MCCAFFREY="/home/taritree/larbys/data2"
+DAVIS="/media/data/larbys/data"
 DATAFOLDER="__unset__"
 try:
     LOCAL_MACHINE=os.popen("uname -n").readlines()[0].strip()
-    if LOCAL_MACHINE not in ["mccaffrey","login001"]:
-        raise RuntimeError("unrecognized machine")
+    if LOCAL_MACHINE not in ["mccaffrey","login001","davis"]:
+        raise RuntimeError("unrecognized machine: %s"%(LOCAL_MACHINE))
 
     if LOCAL_MACHINE=="mccaffrey":
         DATAFOLDER=MCCAFFREY
     elif LOCAL_MACHINE=="login001":
         DATAFOLDER=TUFTS
+    elif LOCAL_MACHINE=="davis":
+        DATAFOLDER=DAVIS
         
 except:
     print "Could not get machine name"
@@ -25,43 +27,6 @@ except:
 if DATAFOLDER=="__unset__":
     raise RuntimeError("Didnt set DATAFOLDER properly.")
 
-
-# MCC8 numu+MC cosmic
-#LARCV_SOURCE="/cluster/kappa/90-days-archive//wongjiradlab/larbys/data/mcc8/calmod_mcc8_bnb_nu_cosmic_v06_26_01_run01.09000_run01.09399_v01_p00_out"
-#LARLITE_SOURCE="/cluster/kappa/90-days-archive/wongjiradlab/larbys/data/mcc8/calmod_mcc8_bnb_nu_cosmic_v06_26_01_run01.09000_run01.09399_v01_p00_out"
-
-# MCC8 nue+MC cosmic
-#LARCV_SOURCE="/cluster/kappa/90-days-archive/wongjiradlab/larbys/data/mcc8/nue_intrinsics_fid10/supera"
-#LARLITE_SOURCE="/cluster/kappa/90-days-archive/wongjiradlab/larbys/data/mcc8/nue_intrinsics_fid10/larlite"
-
-# MCC8.1 Samples
-# --------------
-
-# MCC8.1 nue+MC cosmic: Tufts
-#LARCV_SOURCE="/cluster/kappa/90-days-archive/wongjiradlab/larbys/data/mcc8.1/nue_1eNpfiltered/supera2"
-#LARLITE_SOURCE="/cluster/kappa/90-days-archive/wongjiradlab/larbys/data/mcc8.1/nue_1eNpfiltered/larlite2"
-
-# MCC8.1 nue+MC cosmics: mccaffrey
-#LARCV_SOURCE="/home/taritree/larbys/data/mcc8.1/nue_1eNpfiltered/supera2"
-#LARLITE_SOURCE="/home/taritree/larbys/data/mcc8.1/nue_1eNpfiltered/larlite2"
-
-# MCC8.1 nue-only: Tufts
-#LARCV_SOURCE="/cluster/kappa/90-days-archive/wongjiradlab/larbys/data/mcc8.1/nue_nocosmic_1eNpfiltered/supera"
-#LARLITE_SOURCE="/cluster/kappa/90-days-archive/wongjiradlab/larbys/data/mcc8.1/nue_nocosmic_1eNpfiltered/larlite"
-
-# MCC8.1 numu+cosmic: Tufts
-#LARCV_SOURCE="/cluster/kappa/90-days-archive/wongjiradlab/larbys/data/mcc8.1/numu_1muNpfiltered/supera"
-#LARLITE_SOURCE="/cluster/kappa/90-days-archive/wongjiradlab/larbys/data/mcc8.1/numu_1muNpfiltered/larlite"
-
-# MCC8.1 Corsika Cosmic MC: Tufts
-#LARCV_SOURCE="/cluster/kappa/90-days-archive/wongjiradlab/larbys/data/mcc8.1/corsika_mc2/supera"
-#LARLITE_SOURCE="/cluster/kappa/90-days-archive/wongjiradlab/larbys/data/mcc8.1/corsika_mc2/larlite"
-
-# MCC8.1 NCpi0: Tufts
-# NOT MADE YET
-
-# MCC8.1 Cocktail: Tufts
-# NOT MADE YET
 
 # MCC8.2 samples
 # --------------
@@ -98,8 +63,8 @@ if DATAFOLDER=="__unset__":
 #LARLITE_SOURCE = DATAFOLDER+"/comparison_samples/extbnb/larlite_wpmtprecut"
 
 # corsika
-LARCV_SOURCE   = DATAFOLDER+"/comparison_samples/corsika/supera_wpmtprecut"
-LARLITE_SOURCE = DATAFOLDER+"/comparison_samples/corsika/larlite_wpmtprecut"
+#LARCV_SOURCE   = DATAFOLDER+"/comparison_samples/corsika/supera_wpmtprecut"
+#LARLITE_SOURCE = DATAFOLDER+"/comparison_samples/corsika/larlite_wpmtprecut"
 
 # BNB data, 5e19
 LARCV_SOURCE   = DATAFOLDER+"/bnbdata_5e19/supera"
