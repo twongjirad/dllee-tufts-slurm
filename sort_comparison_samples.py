@@ -8,9 +8,36 @@ from larcv import larcv
 # DATA
 # ---------------
 
-# 1e1p Tufts
-superafolder  = "/cluster/kappa/90-days-archive/wongjiradlab/larbys/data/comparison_samples/1e1p/supera"
-larlitefolder = "/cluster/kappa/90-days-archive/wongjiradlab/larbys/data/comparison_samples/1e1p/larlite"
+TUFTS="/cluster/kappa/90-days-archive/wongjiradlab/larbys/data"
+MCCAFFREY="/mnt/sdb/larbys/data"
+#MCCAFFREY="/home/taritree/larbys/data2"
+DATAFOLDER="__unset__"
+try:
+    LOCAL_MACHINE=os.popen("uname -n").readlines()[0].strip()
+    if LOCAL_MACHINE not in ["mccaffrey","login001"]:
+        raise RuntimeError("unrecognized machine")
+
+    if LOCAL_MACHINE=="mccaffrey":
+        DATAFOLDER=MCCAFFREY
+    elif LOCAL_MACHINE=="login001":
+        DATAFOLDER=TUFTS
+        
+except:
+    print "Could not get machine name"
+    LOCAL_MACHINE=os.popen("uname -n").readlines()
+    print LOCAL_MACHINE
+    sys.exit(-1)
+
+if DATAFOLDER=="__unset__":
+    raise RuntimeError("Didnt set DATAFOLDER properly.")
+
+# 1e1p
+#superafolder  = DATAFOLDER+"/comparison_samples/1e1p/supera"
+#larlitefolder = DATAFOLDER+"/comparison_samples/1e1p/larlite"
+
+# 1mu1p
+superafolder  = DATAFOLDER+"/comparison_samples/1mu1p/supera"
+larlitefolder = DATAFOLDER+"/comparison_samples/1mu1p/larlite"
 
 fdict = {} # key: first (run,subrun,event), value: dict of file types
 

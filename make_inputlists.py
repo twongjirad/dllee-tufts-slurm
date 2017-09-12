@@ -1,6 +1,30 @@
 import os,sys
 
 # SPECIFY FOLDER WHERE INPUT DATA LIVES
+# ------------------------------------------------------------------------
+TUFTS="/cluster/kappa/90-days-archive/wongjiradlab/larbys/data"
+MCCAFFREY="/mnt/sdb/larbys/data"
+#MCCAFFREY="/home/taritree/larbys/data2"
+DATAFOLDER="__unset__"
+try:
+    LOCAL_MACHINE=os.popen("uname -n").readlines()[0].strip()
+    if LOCAL_MACHINE not in ["mccaffrey","login001"]:
+        raise RuntimeError("unrecognized machine")
+
+    if LOCAL_MACHINE=="mccaffrey":
+        DATAFOLDER=MCCAFFREY
+    elif LOCAL_MACHINE=="login001":
+        DATAFOLDER=TUFTS
+        
+except:
+    print "Could not get machine name"
+    LOCAL_MACHINE=os.popen("uname -n").readlines()
+    print LOCAL_MACHINE
+    sys.exit(-1)
+
+if DATAFOLDER=="__unset__":
+    raise RuntimeError("Didnt set DATAFOLDER properly.")
+
 
 # MCC8 numu+MC cosmic
 #LARCV_SOURCE="/cluster/kappa/90-days-archive//wongjiradlab/larbys/data/mcc8/calmod_mcc8_bnb_nu_cosmic_v06_26_01_run01.09000_run01.09399_v01_p00_out"
@@ -53,9 +77,33 @@ import os,sys
 # MCC8.x Comparison Samples
 # -------------------------
 
-# Nue+cosmics: Tufts
-LARCV_SOURCE="/cluster/kappa/90-days-archive/wongjiradlab/larbys/data/comparison_samples/1e1p/supera"
-LARLITE_SOURCE="/cluster/kappa/90-days-archive/wongjiradlab/larbys/data/comparison_samples/1e1p/larlite"
+# 1e1p Nue+cosmics
+#LARCV_SOURCE   = DATAFOLDER+"/comparison_samples/1e1p/supera"
+#LARLITE_SOURCE = DATAFOLDER+"/comparison_samples/1e1p/larlite"
+
+# 1mu1p Numu+cosmics
+#LARCV_SOURCE   = DATAFOLDER+"/comparison_samples/1e1p/supera"
+#LARLITE_SOURCE = DATAFOLDER+"/comparison_samples/1e1p/larlite"
+
+# numu inclusive+cosmics
+#LARCV_SOURCE   = DATAFOLDER+"/comparison_samples/inclusive_muon/supera_links"
+#LARLITE_SOURCE = DATAFOLDER+"/comparison_samples/inclusive_muon/larlite_links"
+
+# ncpizero
+#LARCV_SOURCE   = DATAFOLDER+"/comparison_samples/ncpizero/supera_links"
+#LARLITE_SOURCE = DATAFOLDER+"/comparison_samples/ncpizero/larlite_links"
+
+# extbnb
+#LARCV_SOURCE   = DATAFOLDER+"/comparison_samples/extbnb/supera_wpmtprecut"
+#LARLITE_SOURCE = DATAFOLDER+"/comparison_samples/extbnb/larlite_wpmtprecut"
+
+# corsika
+LARCV_SOURCE   = DATAFOLDER+"/comparison_samples/corsika/supera_wpmtprecut"
+LARLITE_SOURCE = DATAFOLDER+"/comparison_samples/corsika/larlite_wpmtprecut"
+
+# BNB data, 5e19
+LARCV_SOURCE   = DATAFOLDER+"/bnbdata_5e19/supera"
+LARLITE_SOURCE = DATAFOLDER+"/bnbdata_5e19/larlite"
 
 
 # We parse folder contents for larcv and larlite files
