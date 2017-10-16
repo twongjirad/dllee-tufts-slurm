@@ -43,8 +43,8 @@ if DATAFOLDER=="__unset__":
 # -------------------------
 
 # 1e1p Nue+cosmics
-#LARCV_SOURCE   = DATAFOLDER+"/comparison_samples/1e1p/supera"
-#LARLITE_SOURCE = DATAFOLDER+"/comparison_samples/1e1p/larlite"
+LARCV_SOURCE   = DATAFOLDER+"/comparison_samples/1e1p/supera_links"
+LARLITE_SOURCE = DATAFOLDER+"/comparison_samples/1e1p/larlite_links"
 
 # 1mu1p Numu+cosmics
 #LARCV_SOURCE   = DATAFOLDER+"/comparison_samples/1e1p/supera"
@@ -59,16 +59,16 @@ if DATAFOLDER=="__unset__":
 #LARLITE_SOURCE = DATAFOLDER+"/comparison_samples/ncpizero/larlite_links"
 
 # extbnb
-#LARCV_SOURCE   = DATAFOLDER+"/comparison_samples/extbnb/supera_wpmtprecut"
-#LARLITE_SOURCE = DATAFOLDER+"/comparison_samples/extbnb/larlite_wpmtprecut"
+#LARCV_SOURCE   = DATAFOLDER+"/comparison_samples/extbnb_wprecuts/supera"
+#LARLITE_SOURCE = DATAFOLDER+"/comparison_samples/extbnb_wprecuts/larlite"
 
 # corsika
 #LARCV_SOURCE   = DATAFOLDER+"/comparison_samples/corsika/supera_wpmtprecut"
 #LARLITE_SOURCE = DATAFOLDER+"/comparison_samples/corsika/larlite_wpmtprecut"
 
 # BNB data, 5e19
-LARCV_SOURCE   = DATAFOLDER+"/bnbdata_5e19/supera"
-LARLITE_SOURCE = DATAFOLDER+"/bnbdata_5e19/larlite"
+#LARCV_SOURCE   = DATAFOLDER+"/bnbdata_5e19/supera"
+#LARLITE_SOURCE = DATAFOLDER+"/bnbdata_5e19/larlite"
 
 
 # We parse folder contents for larcv and larlite files
@@ -113,7 +113,7 @@ for jobid,fileid in enumerate(fileid_list):
 
     flarlite = open("inputlists/input_larlite_%04d.txt"%(fileid),'w')
     for f in job_dict[fileid]["larlite"]:
-        if "simch" in f or "hist" in f or "wire" in f:
+        if "simch" in f or "hist" in f or "wire" in f or "reco2d" in f:
             continue
         print >> flarlite,f
     flarlite.close()
