@@ -43,8 +43,8 @@ if DATAFOLDER=="__unset__":
 # -------------------------
 
 # 1e1p Nue+cosmics
-LARCV_SOURCE   = DATAFOLDER+"/comparison_samples/1e1p/supera_links"
-LARLITE_SOURCE = DATAFOLDER+"/comparison_samples/1e1p/larlite_links"
+#LARCV_SOURCE   = DATAFOLDER+"/comparison_samples/1e1p/supera_links"
+#LARLITE_SOURCE = DATAFOLDER+"/comparison_samples/1e1p/larlite_links"
 
 # 1mu1p Numu+cosmics
 #LARCV_SOURCE   = DATAFOLDER+"/comparison_samples/1e1p/supera"
@@ -59,8 +59,8 @@ LARLITE_SOURCE = DATAFOLDER+"/comparison_samples/1e1p/larlite_links"
 #LARLITE_SOURCE = DATAFOLDER+"/comparison_samples/ncpizero/larlite_links"
 
 # extbnb
-#LARCV_SOURCE   = DATAFOLDER+"/comparison_samples/extbnb_wprecuts/supera"
-#LARLITE_SOURCE = DATAFOLDER+"/comparison_samples/extbnb_wprecuts/larlite"
+LARCV_SOURCE   = DATAFOLDER+"/comparison_samples/extbnb_wprecuts/supera"
+LARLITE_SOURCE = DATAFOLDER+"/comparison_samples/extbnb_wprecuts/larlite"
 
 # corsika
 #LARCV_SOURCE   = DATAFOLDER+"/comparison_samples/corsika/supera_wpmtprecut"

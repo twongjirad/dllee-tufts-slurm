@@ -65,12 +65,13 @@ clear_good_jobs = True
 
 # EXTBNB w/ precuts
 #TAGGER_FOLDER=DATAFOLDER+"/comparison_samples/extbnb/out_week082817/tagger"
+TAGGER_FOLDER=DATAFOLDER+"/comparison_samples/extbnb_wprecuts/out_week082817/tagger"
 
 # Corsika w/ precuts
 #TAGGER_FOLDER=DATAFOLDER+"/comparison_samples/corsika/out_week082817/tagger"
 
 # BNB DATA, 5e19 sample
-TAGGER_FOLDER=DATAFOLDER+"/bnbdata_5e19/out_week082817/tagger"
+#TAGGER_FOLDER=DATAFOLDER+"/bnbdata_5e19/out_week082817/tagger"
 
 
 
