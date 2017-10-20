@@ -61,8 +61,8 @@ if DATAFOLDER=="__unset__":
 # extbnb
 #LARCV_SOURCE   = DATAFOLDER+"/comparison_samples/extbnb_wprecuts/supera"
 #LARLITE_SOURCE = DATAFOLDER+"/comparison_samples/extbnb_wprecuts/larlite"
-LARCV_SOURCE   = DATAFOLDER+"/comparison_samples/extbnb_wprecuts_reprocess/supera_p00"
-LARLITE_SOURCE = DATAFOLDER+"/comparison_samples/extbnb_wprecuts_reprocess/larlite_p00"
+LARCV_SOURCE   = DATAFOLDER+"/comparison_samples/extbnb_wprecuts_reprocess/supera_p04"
+LARLITE_SOURCE = DATAFOLDER+"/comparison_samples/extbnb_wprecuts_reprocess/larlite_p04"
 
 # corsika
 #LARCV_SOURCE   = DATAFOLDER+"/comparison_samples/corsika/supera_wpmtprecut"

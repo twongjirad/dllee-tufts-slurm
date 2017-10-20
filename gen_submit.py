@@ -36,7 +36,7 @@ INPUTLISTDIR=${WORKDIR}/inputlists
 #OUTPUTDIR=/cluster/kappa/90-days-archive/wongjiradlab/larbys/data/comparison_samples/ncpizero/out_week080717/tagger
 #OUTPUTDIR=/cluster/kappa/90-days-archive/wongjiradlab/larbys/data/comparison_samples/extbnb/out_week082817/tagger
 #OUTPUTDIR=/cluster/kappa/90-days-archive/wongjiradlab/larbys/data/comparison_samples/corsika/out_week082817/tagger
-OUTPUTDIR=/cluster/kappa/90-days-archive/wongjiradlab/larbys/data/comparison_samples/extbnb_wprecuts_reprocess/out_week10132017/tagger_p00
+OUTPUTDIR=/cluster/kappa/90-days-archive/wongjiradlab/larbys/data/comparison_samples/extbnb_wprecuts_reprocess/out_week10132017/tagger_p04
 #OUTPUTDIR=/cluster/kappa/90-days-archive/wongjiradlab/larbys/data/bnbdata_5e19/out_week082817/tagger
 
 mkdir -p ${OUTPUTDIR}
