@@ -47,8 +47,8 @@ if DATAFOLDER=="__unset__":
 #LARLITE_SOURCE = DATAFOLDER+"/comparison_samples/1e1p/larlite_links"
 
 # 1mu1p Numu+cosmics
-#LARCV_SOURCE   = DATAFOLDER+"/comparison_samples/1e1p/supera"
-#LARLITE_SOURCE = DATAFOLDER+"/comparison_samples/1e1p/larlite"
+#LARCV_SOURCE   = DATAFOLDER+"/comparison_samples/1mu1p/supera_links"
+#LARLITE_SOURCE = DATAFOLDER+"/comparison_samples/1mu1p/larlite_links"
 
 # numu inclusive+cosmics
 #LARCV_SOURCE   = DATAFOLDER+"/comparison_samples/inclusive_muon/supera_links"
@@ -59,10 +59,8 @@ if DATAFOLDER=="__unset__":
 #LARLITE_SOURCE = DATAFOLDER+"/comparison_samples/ncpizero/larlite_links"
 
 # extbnb
-#LARCV_SOURCE   = DATAFOLDER+"/comparison_samples/extbnb_wprecuts/supera"
-#LARLITE_SOURCE = DATAFOLDER+"/comparison_samples/extbnb_wprecuts/larlite"
-LARCV_SOURCE   = DATAFOLDER+"/comparison_samples/extbnb_wprecuts_reprocess/supera_p04"
-LARLITE_SOURCE = DATAFOLDER+"/comparison_samples/extbnb_wprecuts_reprocess/larlite_p04"
+#LARCV_SOURCE   = DATAFOLDER+"/comparison_samples/extbnb_wprecuts_reprocess/supera_p01"
+#LARLITE_SOURCE = DATAFOLDER+"/comparison_samples/extbnb_wprecuts_reprocess/larlite_p01"
 
 # corsika
 #LARCV_SOURCE   = DATAFOLDER+"/comparison_samples/corsika/supera_wpmtprecut"
@@ -72,6 +70,12 @@ LARLITE_SOURCE = DATAFOLDER+"/comparison_samples/extbnb_wprecuts_reprocess/larli
 #LARCV_SOURCE   = DATAFOLDER+"/bnbdata_5e19/supera"
 #LARLITE_SOURCE = DATAFOLDER+"/bnbdata_5e19/larlite"
 
+# BNB-nu+Cosmics, MCC8.3 Cocktail samples
+#LARCV_SOURCE   = DATAFOLDER+"/comparison_samples/bnbnu_cocktail_mcc8.3/supera_p01"
+#LARLITE_SOURCE = DATAFOLDER+"/comparison_samples/bnbnu_cocktail_mcc8.3/larlite_p01"
+
+# MCC8v7 OVERLAY
+LARCV_SOURCE = 
 
 # We parse folder contents for larcv and larlite files
 # We keep them in a dictionary

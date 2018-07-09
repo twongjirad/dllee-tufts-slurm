@@ -55,11 +55,11 @@ for n,l in enumerate(llist):
     jobid = run*10000 + subrun
 
     inlist_larcv = open("inputlists/input_larcv_%010d.txt"%(jobid),'w')
-    print >> inlist_larcv,supera
+    print >> inlist_larcv,supera.replace("/cluster/tufts","/cluster/kappa")
     inlist_larcv.close()
 
     inlist_larlite = open("inputlists/input_larlite_%010d.txt"%(jobid),'w')
-    print >> inlist_larlite,supera
+    print >> inlist_larlite,opreco.replace("/cluster/tufts","/cluster/kappa")
     inlist_larlite.close()
     
     print >> jlist,jobid

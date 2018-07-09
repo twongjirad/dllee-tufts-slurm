@@ -1,7 +1,7 @@
 #!/bin/bash
 
-CONTAINER=/cluster/kappa/90-days-archive/wongjiradlab/larbys/images/dllee_unified/singularity-dllee-unified-071017.img
-WORKDIR=/cluster/kappa/90-days-archive/wongjiradlab/grid_jobs/dllee-tufts-slurm
+CONTAINER=/cluster/kappa/90-days-archive/wongjiradlab/larbys/images/dllee_unified/singularity-dllee-unified-taggerv2alpha-20171121.img
+WORKDIR=/cluster/kappa/90-days-archive/wongjiradlab/grid_jobs/dllee-tagger-scripts
 
 module load singularity
 
